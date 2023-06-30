@@ -1,0 +1,29 @@
+{% extends "ProyectoFinalApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<html>
+
+<body>
+
+<p style="color: white">Estás buscando: <strong>{{query}}</strong></p>
+
+{% if recuerdos %}
+    <p style="color: white">Recuerdos encontrados: {{recuerdos|length}} recuerdo/s</p>
+    <ul>
+        {% for recuerdo in recuerdos %}
+            <a href="{% url 'detalles' recuerdo.id %}" class="section-heading-lower" style="color:greenyellow">{{recuerdo.titulo}}</a>
+        {% endfor%}
+    </ul>
+{% else %}
+
+    <p style="color: white">No está el recuerdo que buscas</p>
+
+{% endif %}
+  
+</body>
+</html>
+
+{% endblock %}

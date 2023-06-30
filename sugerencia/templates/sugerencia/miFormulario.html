@@ -1,0 +1,27 @@
+{% extends "ProyectoFinalApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1 style="color: white;" class="container text-center">AGREGA UNA SUGERENCIA PARA NUESTRO MEDIO</h1>
+</head>
+<body>
+    {% if miFormulario.errors %}
+
+        <p style="color: red;">Los datos ingresados son erroneos. Reviselos nuevamente</p>
+
+    {% endif %}
+
+    <form action="" method="POST" class="container text-center">{% csrf_token %}
+        <table style="color: white; margin: 20px auto;">{{miFormulario.as_table}}</table>
+        <input type="submit" value="Enviar Sugerencia" style= "width: 150px; margin: 20px auto">
+    </form>
+</body>
+</html>
+
+{% endblock %}

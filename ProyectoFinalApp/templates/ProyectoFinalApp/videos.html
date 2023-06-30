@@ -1,0 +1,32 @@
+{% extends "ProyectoFinalApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h1 style="color: white" class="container text-center" >NO HAY PÁGINAS AÚN</h1>
+
+    {% for video in videos %}
+
+
+    <section class="page-section clearfix">
+        <div class="container">
+          <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{video.videos.url}}" alt="" style="width: 54.1%;  height: 90%">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+              <h2 class="section-heading mb-4" >
+                <span class="section-heading-lower" style="color:greenyellow">{{video.titulo}}</span>
+                <span class="section-heading-upper">       </span>
+                <span class="section-heading-upper">       </span>
+                <span class="section-heading-upper">{{video.contenido}}</span>
+              </h2>
+              <div style="text-align: left; font-size: 0.9em">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    {% endfor %}
+{% endblock %}

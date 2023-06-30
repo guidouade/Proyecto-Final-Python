@@ -1,0 +1,30 @@
+{% extends "ProyectoFinalApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<br>
+<br>
+
+<div class="container text-center">
+    <h1 style="color: white">Registro de Nuevo Usuario</h1>
+</div>
+
+<div class="container">
+    <div class="form-group">
+    <form style=" width: 50vw; margin-left : 15vw; color:white" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="container text-center">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+        </div>
+    </form>
+    </div>
+    <br>
+    <div class="container text-center">
+    <p style="color: white">¿Ya tienes una cuenta? <a href="{% url 'login' %}" style="color: greenyellow">Iniciar Sesión</a></p>
+    </div>
+</div>
+
+{% endblock %}

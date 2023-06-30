@@ -1,0 +1,27 @@
+{% extends "ProyectoFinalApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% if not sugerencias %}
+        <h2 style="color: white" class="container text-center">  </h2>
+        <h2 style="color: white" class="container text-center">NO HAY SUGERENCIAS</h2>
+
+        <a href="{% url 'sugerencia-create' %}" class="nav-link text-uppercase text-expanded" style="color: greenyellow">CREAR SUGERENCIA</a>
+    {% else %}
+        <ul>
+            {% for sugerencia in sugerencias %}
+                <li style="color: white">
+                    {{ sugerencia }}  &nbsp;  &nbsp;
+                    <a href="{% url 'sugerencia-update' sugerencia.id %}" style="color: rgb(255, 251, 5)"> Editar</a> &nbsp;
+                    <a href="{% url 'sugerencia-delete' sugerencia.id %}" style="color: rgb(255, 83, 9)"> Borrar</a>
+                </li>
+            {% endfor %}
+
+
+        <a href="{% url 'sugerencia-create' %}" class="nav-link text-uppercase text-expanded" style="color: greenyellow">CREAR SUGERENCIA</a>
+        </ul>
+    {% endif %}
+
+{% endblock %}

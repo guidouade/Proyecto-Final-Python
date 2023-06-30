@@ -1,0 +1,35 @@
+{% extends "ProyectoFinalApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container text-center">
+    <h1 style="color:white">Has salido de la sesión</h1>
+</div>
+
+<div class="container text-center">
+    <p style="color: white">Quieres <a href="{% url 'login' %}" style="color: greenyellow">iniciar sesión</a> de nuevo?</p>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

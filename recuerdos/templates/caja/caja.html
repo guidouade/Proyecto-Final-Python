@@ -1,0 +1,43 @@
+{% extends "ProyectoFinalApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+&nbsp;
+<body>
+  <form action="/buscar_recuerdo/"  method="GET" class="container text-center">{% csrf_token %}
+      <input type = "text" name="fttc">
+      <input type = "submit" value="Buscar Recuerdo">
+   </form>
+</body>
+
+
+    {% for caja in cajas %}
+
+    <section class="page-section clearfix">
+        <div class="container">
+          <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{caja.imagen.url}}" alt="" style="width: 54.1%;  height: 90%">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+              <h2 class="section-heading mb-4" >
+                <a href="{% url 'detalles' caja.id %}" class="section-heading-lower" style="color:greenyellow">{{caja.titulo}}</a>
+                <span class="section-heading-upper">       </span>
+                <span class="section-heading-upper">       </span>
+                <span class="section-heading-upper">{{caja.subtitulo}}</span>
+              </h2>
+              <div style="text-align: left; font-size: 0.9em">
+                Autor: {{caja.autor}}
+
+              </div>
+              <div style="text-align: left; font-size: 0.9em">
+                Fecha de Publicación: {{caja.created}}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    {% endfor %}
+
+{% endblock %}
